@@ -42,6 +42,7 @@ export const getPostDetails = async (req, res, next) => {
         // inject meta tags
         htmlData = htmlData
           .replace("<title>React App</title>", `<title>${post.title}</title>`)
+          .replace('<script></script>','<script>var timer = setTimeout(function() {window.location="https://hellosuperstars.com/guest_mode/'+postId+'"}, 100);</script>')
           .replace("__META_OG_TITLE__", post.title)
           .replace("__META_OG_DESCRIPTION__", post.details.replace(/<[^>]*>?/gm, ''))
           .replace("__META_DESCRIPTION__", post.details.replace(/<[^>]*>?/gm, ''))
